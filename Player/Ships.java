@@ -5,7 +5,6 @@ import java.util.Random;
 public class Ships {
     int[][] navios = new int[3][2];
 
-
     public Ships(){
         Random raffle = new Random();
         

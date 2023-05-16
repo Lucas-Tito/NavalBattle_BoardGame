@@ -1,4 +1,3 @@
-import Player.Board;
 import Player.Player;
 
 public class batalhaNaval {
@@ -30,8 +29,11 @@ public class batalhaNaval {
             }
 
             //stores the hits scored and attempts
-            if(hitWasScored)
+            if(hitWasScored){
                 currentPlayer.increaseHitsScored();
+                System.out.println("Você acertou um navio!");
+            }
+                
             currentPlayer.increaseAttempts();
 
             //change player current playing

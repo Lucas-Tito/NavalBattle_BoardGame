@@ -11,11 +11,19 @@ public class Board {
     }
     
 
-    public void updateBoard(int[] tiro, int[][] navios, int[][] tabuleiro){
-        if(ships.hitWasTaken(tiro))
-            tabuleiro[tiro[0]][tiro[1]]=1;
+    /*  
+        * returns true when the player scores a hit 
+        * used to keep track of player hits on player class
+    */
+    public boolean updateBoard(int[] shot){
+        if(ships.hitWasTaken(shot)){
+            board[shot[0]][shot[1]]=1;
+            return true;
+        }
         else
-            tabuleiro[tiro[0]][tiro[1]]=0; 
+            board[shot[0]][shot[1]]=0; 
+
+        return false;
             
     }
 

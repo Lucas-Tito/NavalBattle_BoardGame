@@ -22,7 +22,29 @@ public class Player {
         shot[1] = input.nextInt();
         shot[1]--;
         
-        return shot;
+        if(isTheShotValid(shot).equals("ok"))
+            return shot;
+        else
+            return null;
+    }
+
+    public String isTheShotValid(int[] shot){
+        
+        if(shot[0]>5 || shot[0]<=0){
+            if(shot[1]>5 || shot[1]<=0)
+                return "linha e coluna inválida";
+
+            return "linha inválida";
+        }
+
+        else if(shot[1]>5 || shot[1]<=0){
+            if(shot[0]>5 || shot[0]<=0)
+                return "linha e coluna inválida";
+
+                return "coluna inválida";
+        }
+            
+        return "ok";
     }
 
     public void increaseAttempts(){

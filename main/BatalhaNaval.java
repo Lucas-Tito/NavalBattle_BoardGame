@@ -1,6 +1,8 @@
+package main;
+
 import Player.Player;
 
-public class batalhaNaval {
+public class BatalhaNaval {
 
     public static void main(String[] args) {
         Player player1 = new Player("PLAYER 1");

@@ -1,4 +1,5 @@
 package Player;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Player {
@@ -26,21 +27,23 @@ public class Player {
         
         if(isTheShotValid(shot).equals("ok"))
             return shot;
-        else
+        else{
             return null;
+        }
+
     }
 
     public String isTheShotValid(int[] shot){
         
-        if(shot[0]>5 || shot[0]<=0){
-            if(shot[1]>5 || shot[1]<=0)
+        if(shot[0]>4 || shot[0]<0){
+            if(shot[1]>4 || shot[1]<0)
                 return "linha e coluna inválida";
 
             return "linha inválida";
         }
 
-        else if(shot[1]>5 || shot[1]<=0){
-            if(shot[0]>5 || shot[0]<=0)
+        else if(shot[1]>4 || shot[1]<0){
+            if(shot[0]>4 || shot[0]<0)
                 return "linha e coluna inválida";
 
                 return "coluna inválida";

@@ -11,6 +11,8 @@ public class Player {
         this.name = name;
     }
 
+    public Player(){}
+
     public int[] darTiro(){
         Scanner input = new Scanner(System.in);
         
@@ -63,6 +65,7 @@ public class Player {
         return attempts;
     }
 
+    //Falta testar
     public boolean updateBoard(int[] shot) {
         return board.updateBoard(shot);
     }
@@ -73,5 +76,23 @@ public class Player {
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAttempts(int attempts) {
+        if(attempts != 0)
+            this.attempts = attempts;
+    }
+
+    public void setHitsScored(int hitsScored) {
+        this.hitsScored = hitsScored;
+    }
+
+
+    public void setShot(int[] shot) {
+        this.shot = shot;
     }
 }

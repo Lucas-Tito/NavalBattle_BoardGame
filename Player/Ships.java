@@ -3,11 +3,11 @@ package Player;
 import java.util.Random;
 
 public class Ships {
-    int[][] navios = new int[3][2];
+    public int[][] navios = new int[3][2];
 
     public Ships(){
         Random raffle = new Random();
-        
+
         for(int navio=0 ; navio < 3 ; navio++){
             navios[navio][0]=raffle.nextInt(5);
             navios[navio][1]=raffle.nextInt(5);
@@ -21,7 +21,6 @@ public class Ships {
                         navios[navio][1]=raffle.nextInt(5);
                     }while( (navios[navio][0] == navios[anterior][0])&&(navios[navio][1] == navios[anterior][1]) );
             }
-            
         }
     }
 

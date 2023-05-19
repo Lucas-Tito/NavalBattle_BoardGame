@@ -10,6 +10,7 @@ public class batalhaNaval {
         Player player2 = new Player("PLAYER 2");
         //current player stores the player that is currently shooting
         Player currentPlayer = player1;
+        Player enemyPlayer = player2;
         
         System.out.println();
         do{
@@ -17,41 +18,37 @@ public class batalhaNaval {
             boolean hitWasScored = false;
             
             //discover who is the player current playing
-            if(currentPlayer.equals(player1)){
-                System.out.println(player2.getBoard());
+            
+            System.out.println(enemyPlayer.getBoard());
 
-                /*
-                    *first, it's processed where the player wants to shoot
-                    *then, it's verified if the coordinate was previously chosen and if the coordinate is in bounds
-                    *then, the board is updated with the player shot
-                    *finally, if it's a hit, hitWasScored turn to true and the point is stored in player
-                 */
-                int[] shot = player1.darTiro();
-                System.out.println(shot);
+            /*
+                *first, it's processed where the player wants to shoot
+                *then, it's verified if the coordinate was previously chosen and if the coordinate is in bounds
+                *then, the board is updated with the player shot
+                *finally, if it's a hit, hitWasScored turn to true and the point is stored in player
+                */
+            int[] shot = currentPlayer.darTiro();
+            System.out.println(shot);
 
-                if(!currentPlayer.isTheShotValid(shot).equals("ok")){
-                    do{
-                        System.out.println(currentPlayer.isTheShotValid(shot));       
-                        shot = player1.darTiro();
-                    }
-                    while(!currentPlayer.isTheShotValid(shot).equals("ok"));
+            if(!currentPlayer.isTheShotValid(shot).equals("ok")){
+                do{
+                    System.out.println(currentPlayer.isTheShotValid(shot));       
+                    shot = currentPlayer.darTiro();
                 }
-
-                if(player2.getBoard().coordinateIsRepeated(shot)){
-                    do{
-                        System.out.println("Voce ja bombardeou esta coordenada, escolha outra!");     
-                        shot = player1.darTiro();
-                    }
-                    while(player2.getBoard().coordinateIsRepeated(shot));
-                }
-                else{
-                    hitWasScored = player2.updateBoard(shot);
-                }
-                
+                while(!currentPlayer.isTheShotValid(shot).equals("ok"));
             }
+
+
+            if(enemyPlayer.getBoard().coordinateIsRepeated(shot)){
+                do{
+                    System.out.println("Voce ja bombardeou esta coordenada, escolha outra!");     
+                    shot = currentPlayer.darTiro();
+                }
+                while(enemyPlayer.getBoard().coordinateIsRepeated(shot));
+            }
+
             else{
-                System.out.println(player1.getBoard());
-                hitWasScored = player1.updateBoard(player2.darTiro());
+                hitWasScored = enemyPlayer.updateBoard(shot);
             }
 
             //stores the hits scored and attempts
@@ -59,14 +56,18 @@ public class batalhaNaval {
                 currentPlayer.increaseHitsScored();
                 System.out.println("Você acertou um navio!");
             }
-                
             currentPlayer.increaseAttempts();
 
             //change player current playing
-            if(currentPlayer.equals(player1))
-                currentPlayer=player2;
-            else
-                currentPlayer=player1;
+            if(currentPlayer.equals(player1)){
+                currentPlayer = player2;
+                enemyPlayer = player1;
+            }
+            else{
+                currentPlayer = player1;
+                enemyPlayer = player2;
+            }
+                
             
         }while(player1.getHitsScored()!=3 && player2.getHitsScored()!=3);
         

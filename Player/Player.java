@@ -1,4 +1,6 @@
 package Player;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Player {
@@ -33,7 +35,6 @@ public class Player {
     }
 
     public String isTheShotValid(int[] shot){
-        
         if(shot[0]>4 || shot[0]<0){
             if(shot[1]>4 || shot[1]<0)
                 return "linha e coluna inválida";

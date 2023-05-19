@@ -17,7 +17,7 @@ public class PlayerTest {
         //what happens when we provide a wrong row and colum?
         assertEquals("testando coluna inválida","coluna inválida", player.isTheShotValid(new int[]{1,6}));
 
-        assertEquals("testando coluna e linha inválida","linha e coluna inválida", player.isTheShotValid(new int[]{0,6}));
+        assertEquals("testando coluna e linha inválida","linha e coluna inválida", player.isTheShotValid(new int[]{-1,6}));
 
         assertEquals("testando linha inválida","linha inválida", player.isTheShotValid(new int[]{6,1}));
     }

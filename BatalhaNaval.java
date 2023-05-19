@@ -19,17 +19,27 @@ public class batalhaNaval {
             //discover who is the player current playing
             if(currentPlayer.equals(player1)){
                 System.out.println(player2.getBoard());
-                
+
                 /*
                     *first, it's processed where the player wants to shoot
-                    *then, it's verified if the coordinate was previously chosen
+                    *then, it's verified if the coordinate was previously chosen and if the coordinate is in bounds
                     *then, the board is updated with the player shot
                     *finally, if it's a hit, hitWasScored turn to true and the point is stored in player
                  */
                 int[] shot = player1.darTiro();
+                System.out.println(shot);
+
+                if(!currentPlayer.isTheShotValid(shot).equals("ok")){
+                    do{
+                        System.out.println(currentPlayer.isTheShotValid(shot));       
+                        shot = player1.darTiro();
+                    }
+                    while(!currentPlayer.isTheShotValid(shot).equals("ok"));
+                }
+
                 if(player2.getBoard().coordinateIsRepeated(shot)){
                     do{
-                        System.out.println("Voce ja bombardeou esta coordenada, escolha outra!");
+                        System.out.println("Voce ja bombardeou esta coordenada, escolha outra!");     
                         shot = player1.darTiro();
                     }
                     while(player2.getBoard().coordinateIsRepeated(shot));

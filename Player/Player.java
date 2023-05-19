@@ -26,12 +26,8 @@ public class Player {
         shot[1] = input.nextInt();
         shot[1]--;
         
-        if(isTheShotValid(shot).equals("ok"))
-            return shot;
-        else{
-            return null;
-        }
-
+        
+        return shot;
     }
 
     public String isTheShotValid(int[] shot){

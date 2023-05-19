@@ -1,10 +1,11 @@
-package main;
+
 
 import Player.Player;
 
 public class BatalhaNaval {
 
     public static void main(String[] args) {
+        Player p = new Player();
         Player player1 = new Player("PLAYER 1");
         Player player2 = new Player("PLAYER 2");
         //current player stores the player that is currently shooting

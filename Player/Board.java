@@ -23,11 +23,17 @@ public class Board {
         else
             board[shot[0]][shot[1]]=0; 
 
-        return false;
-            
+        return false;  
     }
 
-    
+    public boolean coordinateIsRepeated(int[] shot){
+        if(board[shot[0]][shot[1]]!=-1){
+            return true;
+        }
+
+        return false;
+    }
+
     @Override
     public String toString(){
         String output = "\t1 \t2 \t3 \t4 \t5";

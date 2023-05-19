@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import Player.Board;
 
-public class UpdateBoardTest {
+public class BoardTest {
     
     @Test
     public void UpdateBoardTests(){

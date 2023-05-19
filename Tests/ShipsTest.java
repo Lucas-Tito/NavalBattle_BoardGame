@@ -1,7 +1,8 @@
 package Tests;
 
-import Player.Ships;
 import org.junit.Test;
+
+import Player.Ships;
 
 import static org.junit.Assert.assertEquals;
 

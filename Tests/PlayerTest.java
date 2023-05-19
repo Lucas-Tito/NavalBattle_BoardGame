@@ -1,8 +1,9 @@
 package Tests;
 
-import Player.Player;
 import org.junit.Test;
+
 import Player.Board;
+import Player.Player;
 
 import static org.junit.Assert.assertEquals;
 
